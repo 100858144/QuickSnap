@@ -1,4 +1,4 @@
-using System;
+    using System;
 using SwinGameSDK;
 using CardGames.GameLogic;
 
@@ -25,6 +25,7 @@ namespace CardGames
 			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
 			{
 				myGame.FlipNextCard ();
+                
 			}
 
             if (myGame.IsStarted)
