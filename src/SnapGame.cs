@@ -1,4 +1,4 @@
-using System;
+    using System;
 using SwinGameSDK;
 using CardGames.GameLogic;
 
@@ -22,10 +22,28 @@ namespace CardGames
 		{
 			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
+            
+			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
+			{
+				myGame.FlipNextCard ();
+                
+			}
 
-            if (SwinGame.KeyTyped(KeyCode.vk_SPACE))
+            if (myGame.IsStarted)
             {
-                myGame.Start();
+                if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT) && SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+                {
+                    //TODO: add sound effects
+                }
+                else if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT))
+                {
+                    myGame.PlayerHit(0);
+                }
+                else if (SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+                {
+                    myGame.PlayerHit(1);
+                }
+
             }
         }
 
